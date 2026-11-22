@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layza — 17 anos | Minecraft Creeper</title>
+
+<style>
+:root {
+  --green: #5fbd35;
+  --lime: #9be34b;
+  --dark: #101810;
+  --cream: #f1f5df;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(#0b120d,#142216 55%,#0b120d);
+  color: var(--cream);
+  font-family: ui-monospace, Consolas, monospace;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  overflow-x: hidden;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .16;
+  background-image:
+    linear-gradient(90deg,transparent 95%,#8bcf55 95%),
+    linear-gradient(transparent 95%,#8bcf55 95%);
+  background-size: 28px 28px;
+}
+
+.wrap {
+  width: min(760px,100%);
+  position: relative;
+}
+
+.top {
+  text-align: center;
+  color: #b9ed83;
+  letter-spacing: 3px;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.card {
+  background: linear-gradient(145deg,#1b2b1d,#101910);
+  border: 4px solid #4c8736;
+  box-shadow: 0 0 0 5px #101810,0 18px 60px #000a;
+  padding: clamp(20px,5vw,42px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:after {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 2px dashed #679c46;
+  pointer-events: none;
+  opacity: .45;
+}
+
+/* CREEPER PIXEL 3D */
+
+.creeper {
+  width: 118px;
+  height: 146px;
+  margin: 0 auto 18px;
+  position: relative;
+  filter: drop-shadow(9px 10px 0 #071007);
+  animation: creeperCycle 5.8s ease-in-out infinite;
+  image-rendering: pixelated;
+}
+
+.head {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  width: 76px;
+  height: 72px;
+  background: linear-gradient(
+    90deg,
+    #4b9d2d 0 13%,
+    #70d044 13% 78%,
+    #3d8528 78%
+  );
+  box-shadow:
+    7px 7px 0 #2f7025,
+    -4px -3px 0 #8be45a;
+}
+
+.head:after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 7px;
+  width: 8px;
+  height: 72px;
+  background: #397d27;
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,transparent 17px,#142016 17px,#142016 31px,transparent 31px) 0 19px/76px 13px no-repeat,
+    linear-gradient(90deg,transparent 45px,#142016 45px,#142016 59px,transparent 59px) 0 19px/76px 13px no-repeat,
+    linear-gradient(90deg,transparent 30px,#142016 30px,#142016 47px,transparent 47px) 0 39px/76px 13px no-repeat,
+    linear-gradient(90deg,transparent 18px,#142016 18px,#142016 58px,transparent 58px) 0 52px/76px 11px no-repeat;
+}
+
+.bodycube {
+  position: absolute;
+  top: 75px;
+  left: 34px;
+  width: 48px;
+  height: 43px;
+  background: linear-gradient(
+    90deg,
+    #438e2a 0 18%,
+    #63c43a 18% 82%,
+    #397c27 82%
+  );
+  box-shadow: 6px 6px 0 #2e7024,-3px -2px 0 #83dc4c;
+}
+
+.leg {
+  position: absolute;
+  top: 116px;
+  width: 20px;
+  height: 25px;
+  background: linear-gradient(
+    90deg,
+    #3f8929 0 25%,
+    #60bd36 25% 78%,
+    #347522 78%
+  );
+  box-shadow: 4px 4px 0 #285d20;
+}
+
+.leg.l { left: 30px; }
+.leg.r { right: 27px; }
+
+@keyframes creeperCycle {
+  0%,48% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: drop-shadow(9px 10px 0 #071007);
+  }
+
+  55% {
+    transform: translateY(-5px) scale(1.13);
+    filter: brightness(1.7) drop-shadow(0 0 13px #b8ff70);
+  }
+
+  62% {
+    transform: translateY(0) scale(.25);
+    opacity: 0;
+    filter: brightness(2);
+  }
+
+  70% {
+    transform: translateY(0) scale(.25);
+    opacity: 0;
+  }
+
+  78%,100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: drop-shadow(9px 10px 0 #071007);
+  }
+}
+
+/* TEXTOS */
+
+h1 {
+  font-size: clamp(32px,8vw,58px);
+  line-height: 1;
+  margin: 10px 0;
+  color: #b8f36b;
+  text-shadow: 4px 4px #28551d;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: clamp(19px,4vw,27px);
+  margin: 0 0 22px;
+  color: white;
+}
+
+.tag {
+  display: inline-block;
+  background: #376b2c;
+  border: 2px solid #9be34b;
+  padding: 8px 14px;
+  color: #eaffd5;
+  font-weight: bold;
+  margin: 8px 0 20px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin: 24px auto;
+  max-width: 520px;
+  text-align: left;
+}
+
+.detail {
+  background: #172518;
+  border: 2px solid #416b35;
+  padding: 13px;
+}
+
+.detail b {
+  display: block;
+  color: #a8e86b;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.detail span {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* BOTÕES */
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #10180e;
+  background: #a4e85b;
+  border: 3px solid #e0ffae;
+  padding: 13px 17px;
+  font-weight: 900;
+  box-shadow: 4px 4px #294d20;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn.secondary {
+  background: #253d24;
+  color: #eaffd5;
+  border-color: #73b64a;
+}
+
+.btn:hover {
+  transform: translate(-1px,-1px);
+  filter: brightness(1.08);
+}
+
+/* ENVELOPE */
+
+#cover {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg,#264a24,#101a12);
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  transition: opacity .8s,transform .8s;
+}
+
+.envelope {
+  width: min(330px,85%);
+  height: 210px;
+  position: relative;
+  background: #79c847;
+  border: 4px solid #c4f68c;
+  box-shadow: 8px 8px #172916;
+  display: grid;
+  place-items: center;
+  color: #10200e;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #4d9d31;
+  clip-path: polygon(0 0,50% 58%,100% 0);
+  border-bottom: 3px solid #c4f68c;
+}
+
+.seal {
+  position: relative;
+  z-index: 1;
+  background: #142315;
+  color: #a8ed66;
+  padding: 10px;
+  border: 3px solid #a8ed66;
+  font-size: 15px;
+}
+
+.open { margin-top: 28px; }
+
+.hidden {
+  opacity: 0;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+/* EXPLOSÃO DE PARTÍCULAS */
+
+.particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #9be34b;
+  pointer-events: none;
+  z-index: 8;
+  animation: burst 1.45s cubic-bezier(.12,.7,.2,1) forwards;
+  box-shadow: 0 0 10px #9be34b;
+}
+
+.particle:nth-child(3n) {
+  background: #5fbd35;
+  box-shadow: 0 0 9px #5fbd35;
+}
+
+.particle:nth-child(4n) {
+  background: #c4f68c;
+  box-shadow: 0 0 12px #c4f68c;
+}
+
+@keyframes burst {
+  to {
+    transform: translate(var(--x),var(--y)) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  font-size: 11px;
+  color: #9eb38f;
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+@media(max-width:520px) {
+  .details { grid-template-columns: 1fr; }
+  .card { padding: 22px 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<main class="wrap">
+
+<div class="top">
+  ▰ MINECRAFT WORLD • SPECIAL EVENT • 06/12 ▰
+</div>
+
+<section class="card">
+
+<div id="cover">
+  <div>
+    <div class="envelope">
+      <span class="seal">✦ CONVITE BLOQUEADO ✦</span>
+    </div>
+
+    <button class="btn open" id="openBtn">
+      ABRIR CONVITE ▶️
+    </button>
+
+    <div style="margin-top:14px;font-size:11px;color:#d8f4c3">
+      Cuidado... tem um Creeper por aqui!
+    </div>
+  </div>
+</div>
+
+<!-- CREEPER -->
+
+<div class="creeper" aria-label="Creeper do Minecraft">
+  <div class="head">
+    <div class="face"></div>
+  </div>
+  <div class="bodycube"></div>
+  <div class="leg l"></div>
+  <div class="leg r"></div>
+</div>
+
+<div class="tag">⚑ VOCÊ FOI CONVOCADO(A) ⚑</div>
+
+<h1>LAYZA</h1>
+<h2>17 ANOS!</h2>
+
+<p>
+Prepare-se para entrar nesse mundo e comemorar comigo.
+Sua presença vai deixar essa aventura ainda mais especial!
+</p>
+
+<div class="details">
+
+  <div class="detail">
+    <b>▣ DATA</b>
+    <span>06 de dezembro</span>
+  </div>
+
+  <div class="detail">
+    <b>◷ HORÁRIO</b>
+    <span>16h</span>
+  </div>
+
+  <div class="detail">
+    <b>⌂ LOCAL</b>
+    <span>Villa Carioca<br>Pátio Sabiá — Uberlândia</span>
+  </div>
+
+  <div class="detail">
+    <b>✦ MISSÃO</b>
+    <span>Comemorar meus 17 anos!</span>
+  </div>
+
+</div>
+
+<div class="buttons">
+
+  <a class="btn"
+     href="https://www.google.com/maps/search/?api=1&query=Villa+Carioca+Patio+Sabia+Uberlandia"
+     target="_blank" rel="noopener">
+    📍 VER LOCALIZAÇÃO
+  </a>
+
+  <a class="btn secondary"
+     href="https://wa.me/?text=Oi%21%20Confirmo%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%2017%20anos%20da%20Layza%21"
+     target="_blank" rel="noopener">
+    💬 CONFIRMAR PRESENÇA
+  </a>
+
+</div>
+
+</section>
+
+<footer>
+  ⚠️ ATENÇÃO: encontro sujeito a explosões de diversão.
+  <br>Traga sua melhor energia! • LAYZA 17
+</footer>
+
+</main>
+
+<script>
+
+const cover = document.getElementById('cover');
+
+/* EXPLOSÃO DO CREEPER */
+
+function creeperBurst() {
+
+  const c = document.querySelector('.creeper');
+
+  if (!c || cover.isConnected) return;
+
+  const r = c.getBoundingClientRect();
+
+  for (let i = 0; i < 42; i++) {
+
+    const p = document.createElement('i');
+    p.className = 'particle';
+
+    p.style.left = (r.left + r.width/2) + 'px';
+    p.style.top = (r.top + r.height/2) + 'px';
+
+    p.style.width = p.style.height =
+      (5 + Math.random()*10) + 'px';
+
+    p.style.setProperty(
+      '--x',
+      (Math.random()*250-125) + 'px'
+    );
+
+    p.style.setProperty(
+      '--y',
+      (Math.random()*220-110) + 'px'
+    );
+
+    p.style.animationDelay =
+      (Math.random()*120) + 'ms';
+
+    document.body.appendChild(p);
+
+    setTimeout(() => p.remove(),1750);
+  }
+}
+
+/* ABERTURA DO CONVITE: 120 PARTÍCULAS */
+
+document.getElementById('openBtn').addEventListener('click',() => {
+
+  const r = document.querySelector('.card').getBoundingClientRect();
+
+  for (let i = 0; i < 120; i++) {
+
+    const p = document.createElement('i');
+    p.className = 'particle';
+
+    p.style.left = (r.left + r.width/2) + 'px';
+    p.style.top = (r.top + r.height/2) + 'px';
+
+    p.style.width = p.style.height =
+      (5 + Math.random()*12) + 'px';
+
+    p.style.setProperty(
+      '--x',
+      (Math.random()*760-380) + 'px'
+    );
+
+    p.style.setProperty(
+      '--y',
+      (Math.random()*620-310) + 'px'
+    );
+
+    p.style.animationDelay =
+      (Math.random()*180) + 'ms';
+
+    document.body.appendChild(p);
+
+    setTimeout(() => p.remove(),1750);
+  }
+
+  cover.classList.add('hidden');
+
+  setTimeout(() => cover.remove(),850);
+
+});
+
+/* EXPLOSÕES AUTOMÁTICAS */
+
+setInterval(creeperBurst,5800);
+
+</script>
+
+</body>
+</html>
